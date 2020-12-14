@@ -1,3 +1,3 @@
-# Scripts brabos
+# Scripts
 
-Repositório destinado a scripts úteis criados por mim.
+Repository destined to publish my useful hacking scripts.
