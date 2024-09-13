@@ -1,5 +1,5 @@
-# Define o caminho do arquivo de saída para a pasta atual
-$outputFile = ".\AnuncioOLX-PC.txt"
+# Define o caminho do arquivo de saída na pasta atual
+$outputFile = Join-Path -Path $PSScriptRoot -ChildPath "DescricaoOLX.txt"
 
 # Coleta informações do Processador
 $cpu = Get-WmiObject Win32_Processor | Select-Object -ExpandProperty Name
@@ -51,11 +51,11 @@ Versão: $os
 Build: $osVersion
 
 OBSERVAÇÕES:
-Computador em ótimo estado, pronto para uso! Ideal para trabalho, estudo e lazer. Para mais informações ou para marcar uma visita, entre em contato via WhatsApp.
+Computador em ótimo estado, pronto para uso! Ideal para trabalho, estudo e lazer. Para mais informações ou para marcar uma visita, entre em contato.
 
 "@
 
-# Salva o conteúdo no arquivo de saída
-$conteudo | Out-File -FilePath $outputFile -Encoding utf8
+# Salva o conteúdo no arquivo de saída com o encoding UTF-8 BOM para suportar acentuações corretamente
+$conteudo | Out-File -FilePath $outputFile -Encoding utf8BOM
 
 Write-Output "Informações salvas com sucesso em $outputFile"
